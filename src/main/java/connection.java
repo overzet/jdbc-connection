@@ -11,21 +11,22 @@ public class connection {
         ResultSet myRs = null;
 
         // Create a connection
-        try {
-//            Properties props = new Properties();
-//            props.load(new FileInputStream("/Users/overzet/IdeaProjects/JdbcTest/sql/demo.properties"));
-//
-//            String theUser = props.getProperty("user");
-//            String thePassword = props.getProperty("password");
-//            String theDburl = props.getProperty("dburl");
-//
-//            System.out.println("Connecting to database......");
-//            System.out.println("Database URL " + theDburl);
-//            System.out.println("User " + theUser);
-//
-//            myConn = DriverManager.getConnection(theDburl, theUser, thePassword);
+        try {   // The fancy pancy way
+            Properties props = new Properties();
+            props.load(new FileInputStream("/Users/overzet/IdeaProjects/JdbcTest/sql/demo.properties"));
 
-            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?user=student&password=student&serverTimezone=UTC&useSSL=false");
+            String theUser = props.getProperty("user");
+            String thePassword = props.getProperty("password");
+            String theDburl = props.getProperty("dburl");
+
+            System.out.println("Connecting to database......");
+            System.out.println("Database URL " + theDburl);
+            System.out.println("User " + theUser);
+
+            myConn = DriverManager.getConnection(theDburl, theUser, thePassword);
+
+            // Create a connection old school cool
+            //myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo?user=student&password=student&serverTimezone=UTC&useSSL=false");
 
             System.out.println("");
             System.out.println("");
